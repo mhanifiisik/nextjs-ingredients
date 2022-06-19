@@ -8,17 +8,18 @@ const SearchBar = ({ history, setHistory }) => {
   const [search, setSearch] = useState("");
   const toast = useToast();
 
-  const myBlogs = ["https://catalins.tech", "https://exampleblog.com"];
-
-  useEffect(() => {
+  /*useEffect(() => {
     localStorage.setItem("history", JSON.stringify(history));
-  }, [history]);
+    let items = JSON.parse(localStorage.getItem("history"));
+    setHistory(items);
+  }, [history]);*/
 
   const handleClick = (e) => {
     e.preventDefault();
     if (search.length > 0) {
-      /* setHistory([...history, search]);*/ //fix later
+      /*setHistory([...history, search]); */ //fix later
       router.push("/ingredients/" + search);
+
       setSearch("");
     } else {
       toast({

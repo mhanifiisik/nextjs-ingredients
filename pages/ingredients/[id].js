@@ -5,14 +5,16 @@ import SearchBar from "../../Components/SearchBar";
 
 const Index = ({ ingredients }) => {
   return (
-    <div className="max-w-7xl mx-auto min-h-screen mt-20">
-      <div className="w-[30rem]">
-        <SearchBar />
-      </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-y-7 gap-x-2 mt-10">
-        {ingredients.map((ingredient) => (
-          <IngredientsCard props={ingredient} key={ingredient.id} />
-        ))}
+    <div className="max-w-7xl mx-auto min-h-screen">
+      <div className="mt-20">
+        <div className="w-[30rem]">
+          <SearchBar />
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-y-7 gap-x-2 mt-10">
+          {ingredients.map((ingredient) => (
+            <IngredientsCard props={ingredient} key={ingredient.id} />
+          ))}
+        </div>
       </div>
     </div>
   );

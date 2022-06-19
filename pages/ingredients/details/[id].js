@@ -8,7 +8,7 @@ const Details = ({ IngredientsDetail }) => {
     name,
   } = IngredientsDetail;
   return (
-    <div className="max-w-7xl mx-auto min-h-screen grid place-items-center">
+    <div className="max-w-7xl mx-auto min-h-screen grid place-items-center 5">
       <h1 className="text-xl font-bold italic bg-teal-800 p-2 text-white">
         Nutrientations of the {name}
       </h1>

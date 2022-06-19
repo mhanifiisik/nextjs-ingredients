@@ -18,6 +18,7 @@ const IngredientsCard = ({ props }) => {
           src={imageUrl}
           layout="fill"
           objectFit="contain"
+          priority="true"
         />
       </div>
       <h1 className="text-lg font-bold grid place-items-center rounded-xl capitalize text-white h-12 bg-[#5f61a3]">

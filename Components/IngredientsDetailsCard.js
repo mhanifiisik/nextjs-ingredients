@@ -1,7 +1,6 @@
 import React from "react";
 
 const IngredientsDetailsCard = ({ nutrients }) => {
-  console.log(nutrients);
   return (
     <table className="table-auto">
       <thead>
