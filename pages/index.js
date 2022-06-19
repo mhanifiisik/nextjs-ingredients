@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-import { MainContext } from "../Context/MainContext";
 import SearchBar from "../Components/SearchBar";
 import Image from "next/Image";
 import Pizza from "../public/pizzaguyR.png";
@@ -40,7 +39,13 @@ export default function Home() {
           <HistoryModal />
         </Flex>
         <Box w="50%" h="30rem" position="relative" className="hidden md:block">
-          <Image src={Pizza} layout="fill" priority="true" objectFit="cover" />
+          <Image
+            src={Pizza}
+            layout="fill"
+            priority="true"
+            objectFit="cover"
+            alt="pizzaguy"
+          />
         </Box>
       </Box>
     </Box>

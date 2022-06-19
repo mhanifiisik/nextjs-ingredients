@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 import IngredientsDetailCard from "../../../Components/IngredientsDetailsCard";
-import IngredientsCard from "../../../Components/IngredientsCard";
 
 const Details = ({ IngredientsDetail }) => {
   const {

@@ -1,6 +1,5 @@
 import React from "react";
 import IngredientsCard from "../../Components/IngredientsCard";
-import { Input, Button, Box } from "@chakra-ui/react";
 import axios from "axios";
 import SearchBar from "../../Components/SearchBar";
 
