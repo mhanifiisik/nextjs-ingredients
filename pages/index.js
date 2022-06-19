@@ -1,6 +1,6 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import SearchBar from "../Components/SearchBar";
-import Image from "next/Image";
+import Image from "next/image";
 import Pizza from "../public/pizzaguyR.png";
 import { Box, Flex, Heading, Container, Button } from "@chakra-ui/react";
 import HistoryModal from "../Components/HistoryModal";
