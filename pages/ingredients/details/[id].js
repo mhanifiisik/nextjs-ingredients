@@ -16,10 +16,9 @@ const Details = ({ IngredientsDetail }) => {
     </div>
   );
 };
-export async function getServerSideProps(context) {
-  const { id } = context.query;
+export async function getServerSideProps({ params }) {
   const response = await axios.get(
-    `https://api.spoonacular.com/food/ingredients/${id}/information?amount=1&apiKey=${process.env.API_KEY}`
+    `https://api.spoonacular.com/food/ingredients/${params.id}/information?amount=1&apiKey=${process.env.API_KEY}`
   );
   const data = await response.data;
   return {

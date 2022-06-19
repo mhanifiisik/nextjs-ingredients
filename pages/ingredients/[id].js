@@ -19,10 +19,9 @@ const Index = ({ ingredients }) => {
     </div>
   );
 };
-export async function getServerSideProps(context) {
-  const { id } = context.query;
+export async function getServerSideProps({ params }) {
   const response = await axios.get(
-    `https://api.spoonacular.com/food/ingredients/search?query=${id}&apiKey=${process.env.API_KEY}`
+    `https://api.spoonacular.com/food/ingredients/search?query=${params.id}&apiKey=${process.env.API_KEY}`
   );
   const data = await response.data.results;
   return {
