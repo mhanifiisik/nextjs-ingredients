@@ -10,7 +10,6 @@ import {
   useDisclosure,
   Button,
 } from "@chakra-ui/react";
-import Link from "next/link";
 const HistoryModal = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
@@ -30,12 +29,15 @@ const HistoryModal = () => {
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader>Your search history is:</DrawerHeader>
-
           <DrawerBody>
             <ul>
               {["banana", "apple", "lemon", "watermelon"].map((item, index) => (
-                <li href={"/ingredients/" + item}>
-                  {index + 1}":"{item}
+                <li
+                  className="text-lg py-1 capitalize hover:text-purple-800 hover:font-bold cursor-pointer"
+                  key={index}
+                  href={"/ingredients/" + item}
+                >
+                  {index + 1}: {item}
                 </li>
               ))}
             </ul>
