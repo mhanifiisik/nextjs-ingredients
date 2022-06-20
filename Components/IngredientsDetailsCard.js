@@ -1,8 +1,9 @@
 import React from "react";
+import "tailwindcss/tailwind.css";
 
 const IngredientsDetailsCard = ({ nutrients }) => {
   return (
-    <table className="table-auto">
+    <table className="">
       <thead>
         <tr>
           <th>Name of nutrition</th>
