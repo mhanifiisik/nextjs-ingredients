@@ -1,38 +1,53 @@
 import React from "react";
-import "tailwindcss/tailwind.css";
-
-const IngredientsDetailsCard = ({ nutrients }) => {
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td,
+  TableCaption,
+  TableContainer,
+} from "@chakra-ui/react";
+const IngredientsDetailsCard = ({ nutrients, name }) => {
   return (
-    <table className="">
-      <thead>
-        <tr>
-          <th>Name of nutrition</th>
-          <th>Amount</th>
-          <th>Unit</th>
-          <th>% Daily Needs</th>
-        </tr>
-      </thead>
-      <tbody>
-        {nutrients.slice(0, 15).map((details, index) => (
-          <tr key={index} className="border-b bg-blue-100 border-blue-200">
-            <td className="text-sm text-gray-900 font-medium px-6 py-4 whitespace-nowrap">
-              {details.name ? details.name : "None"}
-            </td>
-            <td className="text-sm text-gray-900 font-medium px-6 py-4 whitespace-nowrap">
-              {details.amount ? details.amount : "None"}
-            </td>
-            <td className="text-sm text-gray-900 font-medium px-6 py-4 whitespace-nowrap">
-              {details.unit ? details.unit : "None"}
-            </td>
-            <td className="text-sm text-gray-900 font-medium px-6 py-4 whitespace-nowrap">
-              {details.percentOfDailyNeeds
-                ? details.percentOfDailyNeeds
-                : "None"}
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <TableContainer>
+      <Table variant="striped" colorScheme="telegram" border="1">
+        <TableCaption variant="top" color="white" border="1" bg="black">
+          Nutritions of the {name}
+        </TableCaption>
+        <Thead bg="black" color="white">
+          <Tr>
+            <Th color="white" py={5}>
+              Name of nutrition
+            </Th>
+            <Th color="white" py={5}>
+              Amount
+            </Th>
+            <Th color="white" py={5}>
+              Unit
+            </Th>
+            <Th color="white" py={5}>
+              % Daily Needs
+            </Th>
+          </Tr>
+        </Thead>
+        <Tbody>
+          {nutrients.slice(0, 10).map((details, index) => (
+            <Tr key={index}>
+              <Td>{details.name ? details.name : "None"}</Td>
+              <Td>{details.amount ? details.amount : "None"}</Td>
+              <Td>{details.unit ? details.unit : "None"}</Td>
+              <Td>
+                {details.percentOfDailyNeeds
+                  ? details.percentOfDailyNeeds
+                  : "None"}
+              </Td>
+            </Tr>
+          ))}
+        </Tbody>
+      </Table>
+    </TableContainer>
   );
 };
 

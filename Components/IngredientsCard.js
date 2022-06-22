@@ -1,18 +1,26 @@
 import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import "tailwindcss/tailwind.css";
+import { Box, GridItem, Heading } from "@chakra-ui/react";
 
 const IngredientsCard = ({ props }) => {
   const router = useRouter();
   const { id, name, image } = props;
   let imageUrl = `https://spoonacular.com/cdn/ingredients_500x500/${image}`;
   return (
-    <div
+    <GridItem
+      h="20rem"
+      bg="white"
+      p={5}
+      display="flex"
+      flexDirection="column"
+      gap={5}
+      rounded="lg"
+      _hover={{ boxShadow: "xl" }}
+      cursor="pointer"
       onClick={() => router.push(`/ingredients/details/${id}`)}
-      className="h-80 border border-white rounded-lg bg-white p-5 flex flex-col gap-5 hover:shadow-2xl hover:cursor-pointer"
     >
-      <div className="w-full h-48 relative">
+      <Box w="100%" h="12rem" position="relative">
         <Image
           alt="ingredients"
           src={imageUrl}
@@ -20,11 +28,20 @@ const IngredientsCard = ({ props }) => {
           objectFit="contain"
           priority="true"
         />
-      </div>
-      <h1 className="text-lg font-bold grid place-items-center rounded-xl capitalize text-white h-12 bg-[#5f61a3]">
+      </Box>
+      <Heading
+        as="h1"
+        rounded="lg"
+        fontSize="lg"
+        textTransform="capitalize"
+        color="white"
+        bg="purple.500"
+        p={2}
+        textAlign="center"
+      >
         {name}
-      </h1>
-    </div>
+      </Heading>
+    </GridItem>
   );
 };
 

@@ -2,21 +2,34 @@ import React from "react";
 import IngredientsCard from "../../Components/IngredientsCard";
 import axios from "axios";
 import SearchBar from "../../Components/SearchBar";
+import { Box, Grid, Heading } from "@chakra-ui/react";
 
 const Index = ({ ingredients }) => {
   return (
-    <div className="max-w-7xl mx-auto min-h-screen">
-      <div className="mt-20">
-        <div className="w-[30rem]">
+    <Box maxW="80rem" mx="auto" minH="90vh">
+      <Box display="flex" flexDirection="column" gap="4rem">
+        <Box w="30rem">
           <SearchBar />
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-y-7 gap-x-2 mt-10">
+        </Box>
+        <Grid
+          templateColumns={{
+            base: "repeat(2,1fr)",
+            md: "repeat(3,1fr)",
+            lg: "repeat(5,1fr)",
+          }}
+          gap={6}
+        >
           {ingredients.map((ingredient) => (
             <IngredientsCard props={ingredient} key={ingredient.id} />
           ))}
-        </div>
-      </div>
-    </div>
+        </Grid>
+        {ingredients.length === 0 && (
+          <Heading as="h1" fontSize="24px" color="white">
+            No ingredients
+          </Heading>
+        )}
+      </Box>
+    </Box>
   );
 };
 export async function getServerSideProps({ params }) {

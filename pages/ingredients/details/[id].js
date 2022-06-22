@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import IngredientsDetailCard from "../../../Components/IngredientsDetailsCard";
+import { Box } from "@chakra-ui/react";
 
 const Details = ({ IngredientsDetail }) => {
   const {
@@ -8,12 +9,9 @@ const Details = ({ IngredientsDetail }) => {
     name,
   } = IngredientsDetail;
   return (
-    <div className="max-w-7xl mx-auto min-h-screen grid place-items-center 5">
-      <h1 className="text-xl font-bold italic bg-teal-800 p-2 text-white">
-        Nutrientations of the {name}
-      </h1>
-      <IngredientsDetailCard nutrients={nutrients} />
-    </div>
+    <Box maxW="80rem" minH="90vh" mx="auto" display="grid" placeItems="center">
+      <IngredientsDetailCard nutrients={nutrients} name={name} />
+    </Box>
   );
 };
 export async function getServerSideProps({ params }) {

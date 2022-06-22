@@ -1,18 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Input, Button, Box } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { useToast } from "@chakra-ui/react";
-import { Spinner } from "@chakra-ui/react";
 
 const SearchBar = ({ history, setHistory }) => {
   const router = useRouter();
   const [search, setSearch] = useState("");
   const toast = useToast();
   const [isClicked, setIsClicked] = useState(false);
-
+  const inputRef = useRef(null);
   //Window proble after routing undefined localstorage item
 
-  /*useEffect(() => {
+  /*  useEffect(() => {
     localStorage.setItem("history", JSON.stringify(history));
     let items = JSON.parse(localStorage.getItem("history"));
     setHistory(items);
@@ -22,8 +21,9 @@ const SearchBar = ({ history, setHistory }) => {
     e.preventDefault();
     if (search.length > 0) {
       setIsClicked(true);
-      /*setHistory([...history, search]); */ //fix later
+      /*setHistory([...history, search]); //fix later */
       router.push("/ingredients/" + search);
+      inputRef.current.value = "";
       setSearch("");
       setIsClicked(false);
     } else {
@@ -35,17 +35,7 @@ const SearchBar = ({ history, setHistory }) => {
       });
     }
   };
-  if (isClicked) {
-    return (
-      <Spinner
-        thickness="4px"
-        speed="0.65s"
-        emptyColor="gray.200"
-        color="blue.500"
-        size="xl"
-      />
-    );
-  }
+
   return (
     <Box minW="15rem">
       <form onSubmit={(e) => handleSubmit(e)}>
@@ -55,6 +45,7 @@ const SearchBar = ({ history, setHistory }) => {
             p="1"
             size="lg"
             type="text"
+            ref={inputRef}
             placeholder="Search Ingredients"
             _placeholder={{ opacity: 1, color: "black" }}
             onChange={(e) => setSearch(e.target.value)}
@@ -64,6 +55,7 @@ const SearchBar = ({ history, setHistory }) => {
             size="lg"
             colorScheme="teal"
             aria-label="Call Segun"
+            isLoading={isClicked ? true : false}
           >
             Search
           </Button>

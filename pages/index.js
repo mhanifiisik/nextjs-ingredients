@@ -7,11 +7,12 @@ import HistoryModal from "../Components/HistoryModal";
 
 export default function Home() {
   const [history, setHistory] = useState(["banana"]);
+  console.log(history);
   return (
     <Box w="100vw" className="landing-container">
       <Box
         maxW="80rem"
-        minH="100vh"
+        minH="90vh"
         mx="auto"
         display="flex"
         flexDirection="row"

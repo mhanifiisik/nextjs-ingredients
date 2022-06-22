@@ -1,10 +1,10 @@
 import "../styles/globals.css";
 import { ChakraProvider } from "@chakra-ui/react";
-import "tailwindcss/tailwind.css";
-
+import Header from "../Components/Headers";
 function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider>
+      <Header />
       <Component {...pageProps} />
     </ChakraProvider>
   );
